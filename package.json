@@ -1,0 +1,19 @@
+{
+  "name": "shader-experiments",
+  "type": "module",
+  "scripts": {
+    "start": "vite --host",
+    "build": "vite build",
+    "check": "tsc",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/three": "^0.144.0",
+    "@vitejs/plugin-basic-ssl": "^0.1.2",
+    "three": "^0.144.0",
+    "three-kit": "github:michealparks/three-kit",
+    "typescript": "^4.8.2",
+    "vite": "^3.0.9",
+    "vite-plugin-string": "^1.1.2"
+  }
+}
