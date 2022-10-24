@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import ssl from '@vitejs/plugin-basic-ssl'
 import vitePluginString from 'vite-plugin-string'
+import define from './env'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,4 +20,5 @@ export default defineConfig({
     }),
   ],
   envPrefix: ['THREE'],
+  define,
 })

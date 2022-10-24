@@ -1,16 +1,21 @@
 import './main.css'
-import { camera, run } from 'three-kit'
+import * as THREE from 'three'
+import { scene, camera, run, renderer, composer } from 'three-kit'
 
-import * as debug from 'three-kit/debug'
+renderer.setClearColor(0x000000)
+
+import Debug from 'three-debug'
 
 const demos = import.meta.glob('./demos/**/*.ts')
 
 // Create demo
 
 const savedDemo = window.localStorage.getItem('shaderExperiments.demo') || 'default'
-const demoModule = await demos[`./demos/${savedDemo}/main.ts`]
+const demoModule = demos[`./demos/${savedDemo}/main.ts`]
 const params = { demo: savedDemo }
-const pane = debug.addPane('demos')
+
+const debug = new Debug(THREE, scene, camera, renderer, composer)
+const pane = debug.addPane('Demos')
 
 pane.addInput(params, 'demo', {
   options: Object.fromEntries(Object.keys(demos).map(key => [key.split('/')[2], key.split('/')[2]])),
