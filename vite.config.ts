@@ -15,7 +15,7 @@ export default defineConfig({
   },
   plugins: [
     ssl(),
-    (vitePluginString as any).default({
+    vitePluginString({
       exclude: 'node_modules/**',
     }),
   ],

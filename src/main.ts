@@ -4,7 +4,7 @@ import { scene, camera, run, renderer, composer } from 'three-kit'
 
 renderer.setClearColor(0x000000)
 
-import Debug from 'three-debug'
+import Inspect from 'three-inspect'
 
 const demos = import.meta.glob('./demos/**/*.ts')
 
@@ -14,7 +14,7 @@ const savedDemo = window.localStorage.getItem('shaderExperiments.demo') || 'defa
 const demoModule = demos[`./demos/${savedDemo}/main.ts`]
 const params = { demo: savedDemo }
 
-const debug = new Debug(THREE, scene, camera, renderer, composer)
+const debug = new Inspect(THREE, scene, camera, renderer, composer)
 const pane = debug.addPane('Demos')
 
 pane.addInput(params, 'demo', {
