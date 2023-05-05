@@ -1,12 +1,14 @@
 import * as THREE from 'three'
-import { lights, scene, update } from 'three-kit'
 import vertexShader from './vert.glsl'
 import fragmentShader from './frag.glsl'
+import { three } from 'trzy'
 
-const light = lights.createAmbient(undefined, 1)
+const { scene, update } = three()
+
+const light = new THREE.AmbientLight()
 scene.add(light)
 
-const radius = 1
+const radius = 0.5
 const widthSegments = 50
 const heightSegments = 50
 const geometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments)
@@ -28,5 +30,5 @@ const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 
 update((time) => {
-  material.uniforms.uTime.value = (time / 1000)
+  material.uniforms['uTime']!.value = (time / 1000)
 })

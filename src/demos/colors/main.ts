@@ -1,7 +1,9 @@
 import * as THREE from 'three'
-import { scene } from 'three-kit'
+import { three } from 'trzy'
 import vertexShader from './vert.glsl'
 import fragmentShader from './frag.glsl'
+
+const { scene } = three()
 
 const colors = new Float32Array([
   1, 0, 0,

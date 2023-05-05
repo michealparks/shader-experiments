@@ -1,15 +1,16 @@
 import * as THREE from 'three'
-import { scene, assets, renderer, camera, update } from 'three-kit'
+import { three, loadTexture } from 'trzy'
 import vertexShader from './vert.glsl'
 import fragmentShader from './frag.glsl'
 
-camera.position.set(0, -0.5, 0.5)
+const { scene, camera, renderer, update } = three()
+
 camera.lookAt(0, 0, 0)
 
 const [diffuse, overlay] = await Promise.all([
-  assets.loadTexture('GroundForest003/GroundForest003_COL_VAR1_1K.jpg'),
-  // assets.loadTexture('dog.jpg'),
-  assets.loadTexture('vector.png'),
+  loadTexture('textures/GroundForest003/GroundForest003_COL_VAR1_1K.jpg'),
+  // loadTexture('textures/dog.jpg'),
+  loadTexture('textures/vector.png'),
 ])
 
 diffuse.wrapS = THREE.RepeatWrapping
@@ -38,11 +39,10 @@ const material = new THREE.ShaderMaterial({
 material.side = THREE.DoubleSide
 material.transparent = true
 
-update(() => {
-  time = Math.sin(performance.now() / 100) * 80 + 150
-  material.uniforms.time.value = time
-})
-
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
+update(() => {
+  time = Math.sin(performance.now() / 100) * 80 + 150
+  material.uniforms['time']!.value = time
+})

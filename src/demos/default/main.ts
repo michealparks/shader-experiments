@@ -1,7 +1,9 @@
 import * as THREE from 'three'
-import { scene } from 'three-kit'
+import { three } from 'trzy'
 import vertexShader from './vert.glsl'
 import fragmentShader from './frag.glsl'
+
+const { scene } = three()
 
 const geo = new THREE.BoxGeometry(1, 1, 1)
 const mat = new THREE.ShaderMaterial({
