@@ -8,13 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/three": "^0.152.0",
+    "@types/three": "^0.152.1",
     "@vitejs/plugin-basic-ssl": "^1.0.1",
-    "three": "^0.152.2",
-    "three-inspect": "^0.3.2",
-    "trzy": "^0.0.37",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.4",
+    "three": "^0.154.0",
+    "three-inspect": "^0.3.4",
+    "trzy": "^0.0.54",
+    "typescript": "^5.1.6",
+    "vite": "^4.3.9",
     "vite-plugin-string": "^1.2.1"
   }
 }

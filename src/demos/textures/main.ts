@@ -5,7 +5,7 @@ import fragmentShader from './frag.glsl'
 
 const { scene, camera, renderer, update } = three()
 
-camera.lookAt(0, 0, 0)
+camera.current.lookAt(0, 0, 0)
 
 const [diffuse, overlay] = await Promise.all([
   loadTexture('textures/GroundForest003/GroundForest003_COL_VAR1_1K.jpg'),

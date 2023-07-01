@@ -13,7 +13,7 @@ const savedDemo = window.localStorage.getItem('shaderExperiments.demo') || 'defa
 const demoModule = demos[`./demos/${savedDemo}/main.ts`]!
 const params = { demo: savedDemo }
 
-const debug = new Inspect({ THREE, scene, camera, renderer })
+const debug = new Inspect({ scene, camera: camera.current as THREE.PerspectiveCamera, renderer })
 const pane = debug.addPane('Demos')
 
 pane.addInput(params, 'demo', {
@@ -23,8 +23,8 @@ pane.addInput(params, 'demo', {
   window.location.reload()
 })
 
-camera.position.set(0, 1, 2)
-camera.lookAt(0, 0, 0)
+camera.current.position.set(0, 1, 2)
+camera.current.lookAt(0, 0, 0)
 
 demoModule()
 

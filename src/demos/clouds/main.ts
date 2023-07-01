@@ -29,6 +29,8 @@ const material = new THREE.ShaderMaterial({
 const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
 
-update((time) => {
+let time = 0
+update((_ctx, dt) => {
+  time += dt
   material.uniforms['uTime']!.value = (time / 1000)
 })
